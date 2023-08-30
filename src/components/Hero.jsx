@@ -1,7 +1,37 @@
-import React from 'react'
+import React from "react";
 import styles from "../style";
 import { discount, cloudIllusion } from "../assets";
 import GetStarted from "./GetStarted";
+import { motion } from "framer-motion";
+
+// const transition = {
+//   duration: 9,
+//   type: "spring",
+//   stiffness: 47,
+//   damping: 14,
+//   delay: 0.2,
+// };
+//   const transition2 = {
+//     duration: 3,
+//     type: "spring",
+//     stiffness: 100,
+//     damping: 8,
+
+//   };
+//      const transition3 = {
+//        type: "spring",
+//        bounce: 0.4,
+//        duration: 3,
+
+//      };
+
+// <motion.div
+// initial={{ y: 40, opacity: 0 }}
+// whileInView={{ y: 0, opacity: 1 }}
+// viewport={{ amount: 0.6 }}
+// transition={transition3}
+// className="btn__wrap"
+// >
 
 const Hero = () => {
   return (
@@ -17,13 +47,11 @@ const Hero = () => {
           <p className={`${styles.paragraph} ml-2`}>
             <span className="text-white">20%</span> Discount For{" "}
             <span className="text-white">1 Month</span> Account
- 
           </p>
         </div>
 
         <div className="flex flex-row justify-between items-center w-full">
           <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
-         
             <span className="text-gradient">Webhooks</span>
           </h1>
           <div className="ss:flex hidden md:mr-4 mr-0">
@@ -31,14 +59,26 @@ const Hero = () => {
           </div>
         </div>
 
-        <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[40.8px] leading-[45px] w-full">        
-As A Service
+        <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[40.8px] leading-[45px] w-full">
+          As A Service
         </h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        flake is an Open-Source Webhooks-as-a-service (WaaS) that makes it easy for developers to send webhooks. Developers make one API call, and flake takes care of deliverability, retries, security, and more.
+          flake is an Open-Source Webhooks-as-a-service (WaaS) that makes it
+          easy for developers to send webhooks. Developers make one API call,
+          and flake takes care of deliverability, retries, security, and more.
         </p>
       </div>
-
+      <motion.div
+        initial={{ x: 40, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          type: "spring",
+          bounce: 0.7,
+          duration: 3,
+        }}
+       
+      >
       <div
         className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}
       >
@@ -54,10 +94,11 @@ As A Service
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
         {/* gradient end */}
       </div>
-
-      <div className={`ss:hidden ${styles.flexCenter}`}>
-        <GetStarted />
-      </div>
+      </motion.div>
+        <div className={`ss:hidden ${styles.flexCenter}`}>
+          <GetStarted />
+        </div>
+     
     </section>
   );
 };

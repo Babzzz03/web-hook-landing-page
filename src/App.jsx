@@ -11,10 +11,12 @@ import {
   Stats,
   Testimonials,
   Hero,
+  Pricing,
+  UseCases,
+  EveryThingNeeded,
+  FAQ,
 } from "./components";
-import Pricing from './components/Pricing';
-import FAQ from './components/FAQ';
-import EveryThingNeeded from './components/EveryThingNeeded';
+
 const App = () => {
   return (
     <div className="bg-primary  w-full overflow-hidden">
@@ -39,10 +41,11 @@ const App = () => {
           <CardDeal />
           <EveryThingNeeded/>
           <Testimonials />
+          <UseCases/>
           <Clients />
-           <FAQ />
+          
            <Pricing />
-         
+          <FAQ />
           <CTA />
           <Footer />
         </div>

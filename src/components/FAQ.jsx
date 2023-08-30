@@ -1,7 +1,7 @@
 import React from 'react'
 import { FAQcontent } from "../constants";
 import styles, { layout } from "../style";
-import Button from "./Button";
+import { motion } from "framer-motion";
 
 const FeatureCard = ({ icon, title, content, index }) => (
     <div
@@ -28,7 +28,14 @@ const FeatureCard = ({ icon, title, content, index }) => (
 const FAQ = () => {
   return (
     <section id="faq" className={layout.section}>
-    <div className={`flex justify-start items-start flex-col`}>
+    <motion.div   initial={{ x: -20, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.4  }}
+        transition={{
+          type: "spring",
+          bounce: 0.7,
+          duration: 3,
+        }}  className={`flex justify-start items-start flex-col`}>
       <h2  className={`${styles.heading2}  mt-5`}>
         Frequently asked<br className="sm:block hidden" /> 
        questions
@@ -37,8 +44,7 @@ const FAQ = () => {
       Can’t find the answer you’re looking for?
 Reach out to our customer support team.
       </p>
-
-    </div>
+    </motion.div>
 
     <div className={`${layout.sectionImg} flex-col`}>
       {FAQcontent.map((feature, index) => (

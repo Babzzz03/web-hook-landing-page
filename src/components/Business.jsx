@@ -1,6 +1,7 @@
 import { features } from "../constants";
 import styles, { layout } from "../style";
 import Button from "./Button";
+import { motion } from "framer-motion";
 
 const FeatureCard = ({ icon, title, content, index }) => (
   <div
@@ -40,11 +41,26 @@ const Business = () => (
       <Button styles={`mt-10`} />
     </div>
 
-    <div className={`${layout.sectionImg} flex-col`}>
+
+    <motion.div
+        initial={{ x: 20, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.6  }}
+        transition={{
+          type: "spring",
+        
+          duration: 3,
+        }}
+        className={`${layout.sectionImg} flex-col`}
+      >
+    
+
       {features.map((feature, index) => (
         <FeatureCard key={feature.id} {...feature} index={index} />
       ))}
-    </div>
+  
+      </motion.div>
+
   </section>
 );
 

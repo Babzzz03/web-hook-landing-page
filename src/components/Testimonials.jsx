@@ -1,6 +1,20 @@
 import { feedback } from "../constants";
 import styles from "../style";
 import FeedbackCard from "./FeedbackCard";
+import { motion } from "framer-motion";
+
+const variants = {
+  hidden: { opacity: 0, y: 7 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.5,
+      ease: "easeOut",
+      duration: 0.8,
+    },
+  },
+};
 
 const Testimonials = () => (
   <section
@@ -21,11 +35,17 @@ const Testimonials = () => (
       </div>
     </div>
 
-    <div className="flex flex-wrap sm:justify-start justify-center w-full feedback-container relative z-[1]">
+    <motion.div
+      variants={variants}
+      initial={"hidden"}
+      whileInView={"show"}
+      viewport={{ once: true }}
+      className="flex flex-wrap sm:justify-start justify-center w-full feedback-container relative z-[1]"
+    >
       {feedback.map((card) => (
         <FeedbackCard key={card.id} {...card} />
       ))}
-    </div>
+    </motion.div>
   </section>
 );
 

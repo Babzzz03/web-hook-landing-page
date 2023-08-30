@@ -1,7 +1,19 @@
 import { stats } from "../constants";
 import styles from "../style";
+import { motion } from "framer-motion";
+
 
 const Stats = () => (
+  <motion.div
+  initial={{ y: 40, opacity: 0 }}
+  whileInView={{ y: 0, opacity: 1 }}
+  viewport={{ amount: 0.4 }}
+  transition={{
+    type: "spring",
+    bounce: 0.4,
+    duration: 3,
+  }}
+>
   <section className={`${styles.flexCenter} flex-row flex-wrap sm:mb-20 mb-6`}>
     {stats.map((stat) => (
       <div
@@ -17,6 +29,7 @@ const Stats = () => (
       </div>
     ))}
   </section>
+  </motion.div>
 );
 
 export default Stats;

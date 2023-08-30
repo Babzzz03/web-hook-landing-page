@@ -1,30 +1,13 @@
 import React from "react";
 import styles from "../style";
 import { FcCheckmark } from "react-icons/fc";
+import { motion } from "framer-motion";
+import { item } from "../constants";
 
-// {
-//   title: "Developer",
-//   descr:
-//     "Perfect way to try out Flask, no need to setup onpremiseing, free forever for side-projects.",
-//   plan: "FREE",
-//   planDuration: "Forever",
-//   CTAct: "Sign Up",
-//   CTALink: "#",
-//   whatIncluded: [
-//     {
-//       Char1: `${(<b>1</b>)} developer`,
-//     },
-//     { Char1: "Fully managed, no infra. to own" },
-//     { Char1: "Fully managed, no infra. to own" },
-//     { Char1: "Fully managed, no infra. to own" },
-//     { Char1: "Fully managed, no infra. to own" },
-//     { Char1: "Fully managed, no infra. to own" },
-//   ],
-// }
 
 const PricingCard = ({ data }) => {
   return (
-    <div
+    <motion.div variants={item}
       className={`flex justify-start items-start  ${styles.padding2}  flex-col bg-black-gradient rounded-[20px] w-[27vw] box-shadow`}
     >
       <h3 className={styles.heading3}>{data.title}</h3>
@@ -41,7 +24,7 @@ const PricingCard = ({ data }) => {
       >
         {data.CTAct}
       </button>
-      <div className="w-full my-4 h-[1px]  bg-slate-100" />
+      <div className="w-full my-4 h-[1px] bg-blue-gradient opacity-20" />
       <p className="text-white font-semibold text-[14px]">WHAT'S INCLUDED</p>
       {data.whatIncluded.map((plan, i) => (
         <div
@@ -53,7 +36,7 @@ const PricingCard = ({ data }) => {
           <p className="mx-2 my-2">{plan.Char1}</p>
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

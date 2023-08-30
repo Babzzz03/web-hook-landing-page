@@ -1,9 +1,19 @@
 import { apple, bill, google } from "../assets";
 import styles, { layout } from "../style";
+import { motion } from "framer-motion";
 
 const Billing = () => (
   <section id="product" className={layout.sectionReverse}>
-    <div className={layout.sectionImgReverse}>
+    <motion.div
+      initial={{ x: -20, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{
+        type: "spring",
+        duration: 3,
+      }}
+      className={`${layout.sectionImgReverse} flex-col`}
+    >
       <img
         src={bill}
         alt="billing"
@@ -14,14 +24,16 @@ const Billing = () => (
       <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
       <div className="absolute z-[0] w-[50%] h-[50%] -left-1/2 bottom-0 rounded-full pink__gradient" />
       {/* gradient end */}
-    </div>
+    </motion.div>
 
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-      Send and Receive  <br className="sm:block hidden" /> webhooks
+        Send and Receive <br className="sm:block hidden" /> webhooks
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-      You can both publish and receive millions of Webhooks events from any provider. Both API providers and API consumers can benefit from using Convoy
+        You can both publish and receive millions of Webhooks events from any
+        provider. Both API providers and API consumers can benefit from using
+        Convoy
       </p>
 
       <div className="flex flex-row flex-wrap sm:mt-10 mt-6">
