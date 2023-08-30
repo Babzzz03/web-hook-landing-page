@@ -69,6 +69,13 @@ export const FAQcontent = [
   },
   {
     id: "question-2",
+    icon: star,
+    title: "What are Webhooks as a Service?",
+    content:
+      "We take everything that goes into a webhook service (retries, backoffs, endpoint monitoring, subscriber management, etc) and package it up into a platform that you can easily integrate with using our API.",
+  },
+  {
+    id: "question-3",
     icon: shield,
     title: "How long does it take to integrate with Flake?",
     content:

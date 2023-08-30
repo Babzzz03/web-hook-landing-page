@@ -14,6 +14,7 @@ import {
 } from "./components";
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
+import EveryThingNeeded from './components/EveryThingNeeded';
 const App = () => {
   return (
     <div className="bg-primary  w-full overflow-hidden">
@@ -36,6 +37,7 @@ const App = () => {
           <Business />
           <Billing />
           <CardDeal />
+          <EveryThingNeeded/>
           <Testimonials />
           <Clients />
            <FAQ />
